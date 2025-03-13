@@ -1,0 +1,71 @@
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1; /* Mendorong footer ke bawah */
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+        .ad-placeholder {
+            background-color: #ddd;
+            text-align: center;
+            padding: 10px;
+            min-height: 250px; /* Ukuran standar iklan */
+        }
+        .mobile-ad {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .video-container {
+            border: 5px solid #007bff;
+            border-radius: 10px;
+            padding: 5px;
+            background-color: #f8f9fa;
+            text-align: center;
+            position: relative;
+        }
+        .ad-container {
+            height: auto; /* Agar menyesuaikan konten */
+            min-height: 200px; /* Minimum tinggi 200px */
+            max-height: 100vh; /* Maksimum tinggi 80% dari tinggi layar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        /* Media Query: Sesuaikan tinggi untuk layar lebih kecil */
+        @media (max-width: 992px) {
+            .ad-container {
+                max-height: 250px; /* Maksimum tinggi 250px untuk tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ad-container {
+                min-height: 150px; /* Minimum tinggi 150px untuk layar kecil */
+                max-height: 200px;
+            }
+        }
+        .player-select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .playlist-item {
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .playlist-item:hover {
+            background: #e0e0e0;
+        }
