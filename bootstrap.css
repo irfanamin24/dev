@@ -1,71 +1,172 @@
-        html, body {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+/* Default light theme */
+    :root {
+        --bg-color: #f8f9fa;
+        --text-color: #212529;
+        --ad-bg: #ddd;
+        --ad-container-bg: #2c2c2c;
+        --playlist-hover: #e0e0e0;
+        --container-bg: #ffffff; /* Tambahkan warna container */
+        --border-color: #ccc; /* Tambahkan warna border */
+        --dropdown-bg: #ffffff;
+        --dropdown-hover: #f1f1f1;
+    }
 
-        .container {
-            flex: 1; /* Mendorong footer ke bawah */
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --ad-bg: #333;
+            --ad-container-bg: #1e1e1e;
+            --playlist-hover: #444;
+            --container-bg: #1e1e1e; /* Sesuaikan container di dark mode */
+            --border-color: #444; /* Border lebih kontras di dark mode */
+            --dropdown-bg: #1e1e1e;
+            --dropdown-hover: #333;
         }
+    }
 
-        body {
-            background-color: #f8f9fa;
-        }
-        .ad-placeholder {
-            background-color: #ddd;
-            text-align: center;
-            padding: 10px;
-            min-height: 250px; /* Ukuran standar iklan */
-        }
-        .mobile-ad {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .video-container {
-            border: 5px solid #007bff;
-            border-radius: 10px;
-            padding: 5px;
-            background-color: #f8f9fa;
-            text-align: center;
-            position: relative;
-        }
+    html, body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .container-fluid {
+        flex: 1; /* Mendorong footer ke bawah */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .ad-placeholder {
+        background-color: var(--ad-bg);
+        text-align: center;
+        padding: 10px;
+        min-height: 250px;
+    }
+
+    /* Mobile Ad: Sesuaikan warna dengan tema */
+    .mobile-ad {
+        background-color: var(--container-bg);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: var(--text-color);
+    }
+    .card {
+        background-color: var(--container-bg);
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        padding: 15px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: var(--text-color);
+    }
+
+    .ad-container {
+        height: auto;
+        min-height: 200px;
+        max-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ad-container-bg);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    /* Media Query: Sesuaikan tinggi untuk layar lebih kecil */
+    @media (max-width: 992px) {
         .ad-container {
-            height: auto; /* Agar menyesuaikan konten */
-            min-height: 200px; /* Minimum tinggi 200px */
-            max-height: 100vh; /* Maksimum tinggi 80% dari tinggi layar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #2c2c2c;
-            border-radius: 10px;
-            padding: 10px;
+            max-height: 250px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .ad-container {
+            min-height: 150px;
+            max-height: 200px;
+        }
+    }
+
+    .player-select {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .playlist-item {
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .playlist-item:hover {
+        background: var(--playlist-hover);
+    }
+
+    /* CONTAINER */
+    .play-container {
+        max-width: 600px;
+        width: 100%;
+        background: var(--container-bg);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    /* SELECT */
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+        cursor: pointer;
+        background: var(--container-bg);
+        color: var(--text-color);
+    }
+    .form-select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+        cursor: pointer;
+        background: var(--container-bg);
+        color: var(--text-color);
+    }
+
+    /* IFRAME */
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+    .dropdown-menu {
+        background-color: var(--dropdown-bg);
+        border: 1px solid var(--border-color);
+    }
+
+    .dropdown-item {
+            color: #ffffff !important;
         }
 
-        /* Media Query: Sesuaikan tinggi untuk layar lebih kecil */
-        @media (max-width: 992px) {
-            .ad-container {
-                max-height: 250px; /* Maksimum tinggi 250px untuk tablet */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .ad-container {
-                min-height: 150px; /* Minimum tinggi 150px untuk layar kecil */
-                max-height: 200px;
-            }
-        }
-        .player-select {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .playlist-item {
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .playlist-item:hover {
-            background: #e0e0e0;
-        }
+    .dropdown-item:hover {
+        background-color: var(--dropdown-hover);
+    }
