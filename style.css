@@ -114,6 +114,15 @@
             opacity: 1;
         }
 
+        .dropdown-menu .dropdown-item {
+            border-bottom: 1px solid #ddd; /* Garis pembatas */
+            padding: 10px 15px; /* Padding agar lebih rapi */
+        }
+        
+        .dropdown-menu .dropdown-item:last-child {
+            border-bottom: none; /* Menghilangkan garis di item terakhir */
+        }
+
         /* RESPONSIVE MENU */
         .menu-toggle {
             display: none;
